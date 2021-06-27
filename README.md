@@ -35,8 +35,9 @@ The output is a *matrix of booleans*, in which `true` is a wall and `false` is a
 
 A possible output of `./mapGenExample 21 21 30` (height 21, width 21, 30% chance of deleting wall) is:
 
-![Demo](https://github.com/p-rivero/SimpleMapGenerator/blob/main/img/demo.png?raw=true)
-
+<details>
+  <summary>Click to see actual console output</summary>
+  
 ```
 Generated maze:
 #	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	
@@ -85,6 +86,9 @@ With extra paths:
 #	 	 	 	 	 	 	 	 	 	#	 	 	 	 	 	 	 	 	 	#	
 #	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	#	
 ```
+</details>
+
+![Demo](https://github.com/p-rivero/SimpleMapGenerator/blob/main/img/demo.png?raw=true)
 
 
 ## How it works
@@ -103,7 +107,7 @@ There's a direct mapping from cell space to board space (see diagram below):
 
 This mapping is the reason why the result matrix always has odd height and width.
 
-The rest of the algorithm (traversing of the cell grid and removing walls between cells) is identical to the basic version of this algorithm.
+The rest of the algorithm (traversing the cell grid and removing walls between cells) is identical to the basic version of this algorithm.
 Once the maze has been generated, removing some walls is trivial and requires a single pass on the result matrix.
 
 ![Spaces diagram](https://github.com/p-rivero/SimpleMapGenerator/blob/main/img/spaces.png?raw=true)
