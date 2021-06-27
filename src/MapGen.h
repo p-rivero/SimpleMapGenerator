@@ -36,8 +36,11 @@ private:
     void removeWall(Cell &a, Cell &b);
 
 public:
+    // Generate a maze with the desired height and width
     MapGen(int height, int width);
+    // Remove some walls from the maze
     void addExtraPaths(int probExtraPath = 20, bool removeIsolated = true);
+    // Get the resulting boolean matrix
     vector<vector<bool>> getMap() const;
 };
 
