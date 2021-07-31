@@ -1,5 +1,5 @@
-#ifndef GRID_H
-#define GRID_H
+#ifndef MAPGEN_H
+#define MAPGEN_H
 
 #include <stack>
 #include <vector>

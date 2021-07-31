@@ -131,7 +131,7 @@ void MapGen::addExtraPaths(int probExtraPath, bool removeIsolated) {
             bool yWall = board[r][c-1] and board[r][c+1];
             bool xWall = board[r-1][c] and board[r+1][c];
             
-            // If there's a path in one axis and walls in the other aix,
+            // If there's a path in one axis and walls in the other axis,
             // this wall can be removed
             if (xPath and yWall and randMax(100) < probExtraPath) board[r][c] = false;
             if (yPath and xWall and randMax(100) < probExtraPath) board[r][c] = false;
