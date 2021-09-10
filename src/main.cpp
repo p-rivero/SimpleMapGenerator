@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
     if (argc >= 4) probExtraWalls = atoi(argv[3]);
 
     vector<RowBool> board;
-    MapGen map(height, width);  // Genetate the maze
+    MapGen map(height, width);  // Generate the maze
 
     // Print the maze
     board = map.getMap();

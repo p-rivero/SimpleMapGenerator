@@ -24,16 +24,15 @@ private:
 
     vector<vector<Cell>> cells;
     vector<vector<bool>> board;
-    stack<Cell*> backtrace;
     Cell *current;
 
     static inline int randMax(int max);
     static inline int boardCoord(int max);
-    inline bool isValid(int i, int j);
+    inline bool isValid(int i, int j) const;
     void generateMap();
     Cell* findNextCell();
     vector<Cell*> getAvailableNeighbors();
-    void removeWall(Cell &a, Cell &b);
+    void removeWall(const Cell &a, const Cell &b);
 
 public:
     // Generate a maze with the desired height and width

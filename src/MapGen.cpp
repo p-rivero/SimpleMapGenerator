@@ -27,8 +27,8 @@ MapGen::MapGen(int h, int w) {
     width = w/2;
 
     // Size of the tile grid
-    boardHeight = boardCoord(height);
-    boardWidth = boardCoord(width);
+    boardHeight = h;
+    boardWidth = w;
     
     // Initialize matrices
     using RowCell = vector<Cell>;
@@ -58,6 +58,7 @@ MapGen::MapGen(int h, int w) {
 
 // Recursive Backtracking
 void MapGen::generateMap() {
+    stack<Cell*> backtrace;
     do {
         current->visited = true;        // Mark current cell as visited
         Cell *next = findNextCell();    // Find a random adjacent cell to visit next
@@ -104,12 +105,12 @@ vector<MapGen::Cell *> MapGen::getAvailableNeighbors() {
 }
 
 // Return true if the cell located on a row+column exists and hasn't been visited
-bool MapGen::isValid(int r, int c) {
+bool MapGen::isValid(int r, int c) const {
     return not (r < 0 or c < 0 or c > width-1 or r > height-1 or cells[r][c].visited);
 }
 
 // Remove a wall (in the board) between 2 cells
-void MapGen::removeWall(Cell &a, Cell &b) {
+void MapGen::removeWall(const Cell &a, const Cell &b) {
     int row = boardCoord(a.row);
     int col = boardCoord(a.column);
     int deltaRow = b.row - a.row;
