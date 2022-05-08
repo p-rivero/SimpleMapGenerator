@@ -5,7 +5,7 @@
 #include <vector>
 #include <stdlib.h>
 #include <assert.h>
-#include <time.h>
+#include <random>
 
 using std::vector;
 using std::stack;
@@ -18,7 +18,8 @@ private:
     int boardWidth;
 
     struct Cell {
-        int row, column;
+        int row;
+        int column;
         bool visited = false;
     };
 
@@ -26,13 +27,14 @@ private:
     vector<vector<bool>> board;
     Cell *current;
 
-    static inline int randMax(int max);
+    static unsigned long randMax(unsigned long max);
     static inline int boardCoord(int max);
     inline bool isValid(int i, int j) const;
     void generateMap();
     Cell* findNextCell();
     vector<Cell*> getAvailableNeighbors();
     void removeWall(const Cell &a, const Cell &b);
+    void removeIsolatedCells();
 
 public:
     // Generate a maze with the desired height and width

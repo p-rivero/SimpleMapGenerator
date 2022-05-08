@@ -5,7 +5,7 @@
 using RowBool = vector<bool>;
 
 // Print a boolean matrix to the terminal
-void outputBoard(vector<RowBool> board) {
+void outputBoard(const vector<RowBool>& board) {
     for (RowBool row : board) {
         for (bool cell : row) std::cout << (cell ? "#" : " ") << '\t';
         std::cout << "\n";
@@ -13,9 +13,6 @@ void outputBoard(vector<RowBool> board) {
 }
 
 int main(int argc, char **argv) {
-    // Seed the RNG
-    srand(time(NULL));
-
     // Default values
     int height = 15;
     int width = 21;
